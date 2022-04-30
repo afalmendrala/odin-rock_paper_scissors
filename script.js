@@ -4,4 +4,11 @@ function computerPlay(){
 
 }
 
-console.log(computerPlay());
+// console.log(computerPlay());
+
+function playerPlay(){
+    const play = prompt("Rock, Paper or Scissors?")
+    return play;    
+}
+
+// console.log(playerPlay());
