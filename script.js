@@ -1,19 +1,17 @@
 function computerPlay(){
     const options = ["Rock", "Paper", "Scissors"];
-    return options[Math.floor(Math.random() * options.length)];
+    return options[Math.floor(Math.random() * options.length)].toLowerCase();
 
 }
 
-// console.log(computerPlay());
+console.log(computerPlay());
 
 function playerPlay(){
-    const play = prompt("Rock, Paper or Scissors?")
-    return play;    
+    const play = prompt("Rock, Paper or Scissors?");
+    return play.toLowerCase();    
 }
 
-// console.log(playerPlay());
-
-const playerSelection = playerPlay().toLowerCase()
-const computerSelection = computerPlay().toLowerCase()
+const playerSelection = playerPlay();
+const computerSelection = computerPlay().toLowerCase();
 
 // console.log(computerSelection);
