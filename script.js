@@ -11,6 +11,17 @@ function playerPlay(){
     return play.toLowerCase();    
 }
 
+function playerWin(player, computer){
+    return `You win! ${player} beats ${computer}!`;
+}
+
+function playerLose(player, computer){
+    return `You lose! ${computer} beats ${player}!`;
+}
+
+function tie(player){
+    return `Tie! both players chose ${player}!`;
+}
 function playRound(player, computer){
     
 }
