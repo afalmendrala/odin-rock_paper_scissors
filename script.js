@@ -12,3 +12,8 @@ function playerPlay(){
 }
 
 // console.log(playerPlay());
+
+const playerSelection = playerPlay().toLowerCase()
+const computerSelection = computerPlay().toLowerCase()
+
+// console.log(computerSelection);
