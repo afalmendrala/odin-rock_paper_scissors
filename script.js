@@ -4,8 +4,6 @@ function computerPlay(){
 
 }
 
-// console.log(computerPlay());
-
 function playerPlay(){
     const play = prompt("Rock, Paper or Scissors?");
     return play.toLowerCase();    
@@ -119,19 +117,23 @@ function playRound(player, computer){
             }        
     }
 }
-let playerSelection;
-let computerSelection;
-let playerScore = 0;
-let computerScore = 0;
 
-for(let i = 0; i < 5; i++){
-    playerSelection = playerPlay();
-    computerSelection = computerPlay().toLowerCase();
-    let results = playRound(playerSelection, computerSelection);
-    let msg = results.msg;
-    playerScore += results.playerScore;
-    computerScore += results.computerScore;
-    console.log(msg + ` Player score: ${playerScore}, Computer Score: ${computerScore}`);
+function game(){
+    let playerSelection;
+    let computerSelection;
+    let playerScore = 0;
+    let computerScore = 0;
+    let msg;
+
+    for(let i = 0; i < 5; i++){
+        playerSelection = playerPlay();
+        computerSelection = computerPlay().toLowerCase();
+        let results = playRound(playerSelection, computerSelection);
+        msg = results.msg;
+        playerScore += results.playerScore;
+        computerScore += results.computerScore;
+        console.log(msg + ` Player score: ${playerScore}, Computer Score: ${computerScore}`);
+    }
 }
 
-// console.log(computerSelection);
+game();
