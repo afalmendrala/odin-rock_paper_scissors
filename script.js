@@ -25,94 +25,66 @@ function playRound(player, computer){
     let computerScore = 0;
 
     let tieGame = function(){
-        return tie(player);
+        return {
+            msg:tie(player),
+            playerScore:playerScore,
+            computerScore:computerScore
+        };
     }
     let winGame = function(){
-        return playerWin(player, computer);
+        playerScore += 1;
+        return {
+            msg:playerWin(player, computer),
+            playerScore:playerScore,
+            computerScore:computerScore
+        };
     }
     let loseGame = function(){
-        return playerLose(player, computer);
+        computerScore += 1;
+        return {
+            msg:playerLose(player, computer),
+            playerScore:playerScore,
+            computerScore:computerScore
+        };
     }
     switch(player){
         case 'rock':
             if(computer == 'rock'){
-                return {
-                    msg:tieGame(),
-                    playerScore:playerScore,
-                    computerScore:computerScore
-                };
+                return tieGame();
                 break;
             }
             else if (computer == 'paper'){
-                computerScore += 1;
-                return {
-                    msg:loseGame(),
-                    playerScore:playerScore,
-                    computerScore:computerScore
-                };
+                return loseGame();
                 break;
             }
             else if (computer == 'scissors'){
-                playerScore += 1;
-                return {
-                    msg:winGame(),
-                    playerScore:playerScore,
-                    computerScore:computerScore
-                };
+                return winGame();
                 break;
             }
         case 'paper':
             if(computer == 'rock'){
-                playerScore += 1;
-                return {
-                    msg:winGame(),
-                    playerScore:playerScore,
-                    computerScore:computerScore
-                };
+                return winGame();
                 break;
             }
             else if (computer == 'paper'){
-                return {
-                    msg:tieGame(),
-                    playerScore:playerScore,
-                    computerScore:computerScore
-                };
+                return tieGame();
                 break;
             }
             else if (computer == 'scissors'){
-                computerScore += 1;
-                return {
-                    msg:loseGame(),
-                    playerScore:playerScore,
-                    computerScore:computerScore
-                };
+                return loseGame();
                 break;
             }
         case 'scissors':
             if(computer == 'rock'){
-                playerScore += 1;
-                return {
-                    msg:winGame(),
-                    playerScore:playerScore,
-                    computerScore:computerScore
-                };
+                return winGame();
                 break;
             }
             else if (computer == 'paper'){
-                computerScore += 1;
-                return {
-                    msg:loseGame(),
-                    playerScore:playerScore,
-                    computerScore:computerScore
-                };
+                return loseGame();
                 break;
             }
             else if (computer == 'scissors'){
-                return {
-                    msg:tieGame(),
-                    playerScore:playerScore,
-                    computerScore:computerScore
-                };
+                return tieGame();
                 break;
             }        
     }
@@ -123,17 +95,16 @@ function game(){
     let computerSelection;
     let playerScore = 0;
     let computerScore = 0;
-    let msg;
 
     for(let i = 0; i < 5; i++){
         playerSelection = playerPlay();
         computerSelection = computerPlay().toLowerCase();
         let results = playRound(playerSelection, computerSelection);
-        msg = results.msg;
         playerScore += results.playerScore;
         computerScore += results.computerScore;
-        console.log(msg + ` Player score: ${playerScore}, Computer Score: ${computerScore}`);
+        console.log(results.msg + ` Player score: ${playerScore}, Computer Score: ${computerScore}`);
     }
+    return;
 }
 
 game();
