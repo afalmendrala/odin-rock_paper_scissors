@@ -49,45 +49,21 @@ function playRound(player, computer){
     }
     switch(player){
         case 'rock':
-            if(computer == 'rock'){
-                return tieGame();
-                break;
-            }
-            else if (computer == 'paper'){
-                return loseGame();
-                break;
-            }
-            else if (computer == 'scissors'){
-                return winGame();
-                break;
-            }
+            return (computer == 'rock') ? tieGame()
+                    :(computer == 'paper') ? loseGame()
+                    : winGame();
+            break;
         case 'paper':
-            if(computer == 'rock'){
-                return winGame();
-                break;
-            }
-            else if (computer == 'paper'){
-                return tieGame();
-                break;
-            }
-            else if (computer == 'scissors'){
-                return loseGame();
-                break;
-            }
+            return (computer == 'rock') ? winGame()
+                    :(computer == 'paper') ? tieGame()
+                    : loseGame();
+            break;
         case 'scissors':
-            if(computer == 'rock'){
-                return winGame();
-                break;
-            }
-            else if (computer == 'paper'){
-                return loseGame();
-                break;
-            }
-            else if (computer == 'scissors'){
-                return tieGame();
-                break;
-            }        
-    }
+            return (computer == 'rock') ? loseGame()
+                    :(computer == 'paper') ? winGame()
+                    : tieGame();
+            break;    
+        }
 }
 
 function game(){
