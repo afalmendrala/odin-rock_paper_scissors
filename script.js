@@ -1,11 +1,13 @@
 function computerPlay(){
     const options = ["Rock", "Paper", "Scissors"];
+    // randomly select from options array
     return options[Math.floor(Math.random() * options.length)].toLowerCase();
 
 }
 
 function playerPlay(){
     const play = prompt("Rock, Paper or Scissors?");
+    // workaround for case-insensitive input from user
     return play.toLowerCase();    
 }
 
