@@ -1,9 +1,8 @@
 const body = document.body;
 
 function computerPlay(){
-    const options = ["Rock", "Paper", "Scissors"];
-    return options[Math.floor(Math.random() * options.length)].toLowerCase();
-
+    const options = ["rock", "paper", "scissors"];
+    return options[Math.floor(Math.random() * options.length)];
 }
 
 function playerWin(player, computer){
@@ -34,29 +33,14 @@ function playRound(player, computer){
     
     let tieGame = function(){
         return gameResult(tie(player), getScore(playerScore, computerScore));
-        // return {
-        //     msg:tie(player),
-        //     playerScore:playerScore,
-        //     computerScore:computerScore
-        // };
     }
     let winGame = function(){
         playerScore += 1;
         return gameResult(playerWin(player, computer), getScore(playerScore, computerScore));
-        // return {
-        //     msg:playerWin(player, computer),
-        //     playerScore:playerScore,
-        //     computerScore:computerScore
-        // };
     }
     let loseGame = function(){
         computerScore += 1;
         return gameResult(playerLose(player, computer), getScore(playerScore, computerScore));
-        // return {
-        //     msg:playerLose(player, computer),
-        //     playerScore:playerScore,
-        //     computerScore:computerScore
-        // };
     }
     switch(player){
         case 'rock':
