@@ -5,16 +5,21 @@ function computerPlay(){
 }
 
 function playerWin(player, computer){
-    console.log(`You win! ${player} beats ${computer}!`);
+    return `You win! ${player} beats ${computer}!`;
 }
 
 function playerLose(player, computer){
-    console.log(`You lose! ${computer} beats ${player}!`);
+    return `You lose! ${computer} beats ${player}!`;
 }
 
 function tie(player){
-    console.log(`Tie! both players chose ${player}!`);
+    return `Tie! both players chose ${player}!`;
 }
+
+function getScore(playerScore, computerScore){
+    return `Player score: ${playerScore}, Computer Score: ${computerScore}`
+}
+
 function playRound(player, computer){
     let playerScore = 0;
     let computerScore = 0;
