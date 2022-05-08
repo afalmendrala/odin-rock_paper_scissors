@@ -65,22 +65,3 @@ function playRound(player, computer){
             break;    
         }
 }
-
-function game(){
-    let playerSelection;
-    let computerSelection;
-    let playerScore = 0;
-    let computerScore = 0;
-
-    for(let i = 0; i < 5; i++){
-        playerSelection = playerPlay();
-        computerSelection = computerPlay().toLowerCase();
-        let results = playRound(playerSelection, computerSelection);
-        playerScore += results.playerScore;
-        computerScore += results.computerScore;
-        console.log(results.msg + ` Player score: ${playerScore}, Computer Score: ${computerScore}`);
-    }
-    return;
-}
-
-game();
