@@ -61,13 +61,12 @@ function playRound(player, computer){
         }
 }
 
-const computerSelection = computerPlay();
-let playerSelection;
 
 let buttons = document.querySelectorAll('#btn');
 buttons.forEach(btn => {
     btn.addEventListener('click', () => {
-        playerSelection = btn.className;
+        const computerSelection = computerPlay();
+        const playerSelection = btn.className;
         playRound(playerSelection, computerSelection);
     })
 })
