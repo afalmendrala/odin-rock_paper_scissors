@@ -4,21 +4,16 @@ function computerPlay(){
 
 }
 
-function playerPlay(){
-    const play = prompt("Rock, Paper or Scissors?");
-    return play.toLowerCase();    
-}
-
 function playerWin(player, computer){
-    return `You win! ${player} beats ${computer}!`;
+    console.log(`You win! ${player} beats ${computer}!`);
 }
 
 function playerLose(player, computer){
-    return `You lose! ${computer} beats ${player}!`;
+    console.log(`You lose! ${computer} beats ${player}!`);
 }
 
 function tie(player){
-    return `Tie! both players chose ${player}!`;
+    console.log(`Tie! both players chose ${player}!`);
 }
 function playRound(player, computer){
     let playerScore = 0;
@@ -65,3 +60,14 @@ function playRound(player, computer){
             break;    
         }
 }
+
+const computerSelection = computerPlay();
+let playerSelection;
+
+let buttons = document.querySelectorAll('#btn');
+buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        playerSelection = btn.className;
+        playRound(playerSelection, computerSelection);
+    })
+})
