@@ -19,35 +19,44 @@ function tie(player){
 }
 
 function getScore(playerScore, computerScore){
-    return `Player score: ${playerScore}, Computer Score: ${computerScore}`
+    return ` Player score: ${playerScore}, Computer Score: ${computerScore}`
 }
 
 function playRound(player, computer){
     let playerScore = 0;
     let computerScore = 0;
 
+    const gameResult = (result, score) => {
+        const message = document.createElement('h1');
+        message.textContent = result + score;
+        body.appendChild(message);
+    }
+    
     let tieGame = function(){
-        return {
-            msg:tie(player),
-            playerScore:playerScore,
-            computerScore:computerScore
-        };
+        return gameResult(tie(player), getScore(playerScore, computerScore));
+        // return {
+        //     msg:tie(player),
+        //     playerScore:playerScore,
+        //     computerScore:computerScore
+        // };
     }
     let winGame = function(){
         playerScore += 1;
-        return {
-            msg:playerWin(player, computer),
-            playerScore:playerScore,
-            computerScore:computerScore
-        };
+        return gameResult(playerWin(player, computer), getScore(playerScore, computerScore));
+        // return {
+        //     msg:playerWin(player, computer),
+        //     playerScore:playerScore,
+        //     computerScore:computerScore
+        // };
     }
     let loseGame = function(){
         computerScore += 1;
-        return {
-            msg:playerLose(player, computer),
-            playerScore:playerScore,
-            computerScore:computerScore
-        };
+        return gameResult(playerLose(player, computer), getScore(playerScore, computerScore));
+        // return {
+        //     msg:playerLose(player, computer),
+        //     playerScore:playerScore,
+        //     computerScore:computerScore
+        // };
     }
     switch(player){
         case 'rock':
