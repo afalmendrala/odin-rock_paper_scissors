@@ -1,4 +1,6 @@
 const body = document.body;
+const h1 = document.createElement('h1');
+body.appendChild(h1);
 
 function computerPlay(){
     const options = ["rock", "paper", "scissors"];
@@ -17,30 +19,26 @@ function tie(player){
     return `Tie! both players chose ${player}!`;
 }
 
-function getScore(playerScore, computerScore){
-    return ` Player score: ${playerScore}, Computer Score: ${computerScore}`
-}
-
 function playRound(player, computer){
     let playerScore = 0;
     let computerScore = 0;
 
-    const gameResult = (result, score) => {
+    const gameResult = (result) => {
         const message = document.createElement('h1');
-        message.textContent = result + score;
+        message.textContent = result;
         body.appendChild(message);
     }
     
     let tieGame = function(){
-        return gameResult(tie(player), getScore(playerScore, computerScore));
+        return gameResult(tie(player));
     }
     let winGame = function(){
         playerScore += 1;
-        return gameResult(playerWin(player, computer), getScore(playerScore, computerScore));
+        return gameResult(playerWin(player, computer));
     }
     let loseGame = function(){
         computerScore += 1;
-        return gameResult(playerLose(player, computer), getScore(playerScore, computerScore));
+        return gameResult(playerLose(player, computer));
     }
     switch(player){
         case 'rock':
