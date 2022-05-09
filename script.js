@@ -16,6 +16,10 @@ function tie(player){
     return `Tie! both players chose ${player}!`;
 }
 
+function getScore(playerScore, computerScore){
+    return ` Player score: ${playerScore}, Computer score: ${computerScore}`;
+}
+
 function playRound(player, computer){
     let playerScore = 0;
     let computerScore = 0;
@@ -59,20 +63,22 @@ function playRound(player, computer){
         }
     }
     
-    const body = document.body;
-    const h1 = document.createElement('h1');
-    body.appendChild(h1);
+const body = document.body;
+const h1 = document.createElement('h1');
+body.appendChild(h1);
+
+let buttons = document.querySelectorAll('#btn');
+let playerScore = 0;
+let computerScore = 0;
+buttons.forEach(btn => {
+btn.addEventListener('click', () => {
+    const computerSelection = computerPlay();
+    const playerSelection = btn.className;
+    const game = playRound(playerSelection, computerSelection);
     
-    let buttons = document.querySelectorAll('#btn');
-    let playerScore = 0;
-    let computerScore = 0;
-    buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-        const computerSelection = computerPlay();
-        const playerSelection = btn.className;
-        const game = playRound(playerSelection, computerSelection);
-        playerScore += game.playerScore;
-        computerScore += game.computerScore;
-        h1.textContent = game.msg + `Player score: ${playerScore}, Computer score: ${computerScore}`;
+    playerScore += game.playerScore;
+    computerScore += game.computerScore;
+    
+    h1.textContent = game.msg + getScore(playerScore, computerScore);
     })
 })
