@@ -54,11 +54,11 @@ function playRound(player, computer){
                 return (computer == 'rock') ? winGame()
                 :(computer == 'paper') ? tieGame()
                 : loseGame();
-                break;
-                case 'scissors':
-                    return (computer == 'rock') ? loseGame()
-                    :(computer == 'paper') ? winGame()
-                    : tieGame();
+            break;
+            case 'scissors':
+                return (computer == 'rock') ? loseGame()
+                :(computer == 'paper') ? winGame()
+                : tieGame();
             break;    
         }
     }
