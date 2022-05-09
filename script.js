@@ -24,21 +24,21 @@ function playRound(player, computer){
     let computerScore = 0;
     
     let tieGame = () => {
-        return {msg:gameResult(tie(player)),
+        return {msg:tie(player),
                 playerScore:playerScore,
                 computerScore: computerScore
         };
     }
     let winGame = () => {
         playerScore += 1;
-        return {msg:gameResult(playerWin(player, computer)),
+        return {msg:playerWin(player, computer),
                 playerScore:playerScore,
                 computerScore: computerScore
         };
     }
     let loseGame = () => {
         computerScore += 1;
-        return {msg:gameResult(playerLose(player, computer)),
+        return {msg:playerLose(player, computer),
                 playerScore:playerScore,
                 computerScore: computerScore
         };
