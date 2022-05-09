@@ -73,6 +73,6 @@ function playRound(player, computer){
         const game = playRound(playerSelection, computerSelection);
         playerScore += game.playerScore;
         computerScore += game.computerScore;
-        h1.textContent = game.ms;
+        h1.textContent = game.msg + `Player score: ${playerScore}, Computer score: ${computerScore}`;
     })
 })
