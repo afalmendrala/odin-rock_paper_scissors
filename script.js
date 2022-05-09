@@ -22,12 +22,6 @@ function tie(player){
 function playRound(player, computer){
     let playerScore = 0;
     let computerScore = 0;
-
-    const gameResult = (result) => {
-        const message = document.createElement('h1');
-        message.textContent = result;
-        body.appendChild(message);
-    }
     
     let tieGame = () => {
         return {msg:gameResult(tie(player)),
@@ -70,6 +64,8 @@ function playRound(player, computer){
 
 
 let buttons = document.querySelectorAll('#btn');
+let playerScore = 0;
+let computerScore = 0;
 buttons.forEach(btn => {
     btn.addEventListener('click', () => {
         const computerSelection = computerPlay();
