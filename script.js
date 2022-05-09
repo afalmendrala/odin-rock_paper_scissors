@@ -67,7 +67,7 @@ const body = document.body;
 const h1 = document.createElement('h1');
 body.appendChild(h1);
 
-let buttons = document.querySelectorAll('#btn');
+const buttons = document.querySelectorAll('#btn');
 let playerScore = 0;
 let computerScore = 0;
 buttons.forEach(btn => {
