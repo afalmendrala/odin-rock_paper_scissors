@@ -29,16 +29,25 @@ function playRound(player, computer){
         body.appendChild(message);
     }
     
-    let tieGame = function(){
-        return gameResult(tie(player));
+    let tieGame = () => {
+        return {msg:gameResult(tie(player)),
+                playerScore:playerScore,
+                computerScore: computerScore
+        };
     }
-    let winGame = function(){
+    let winGame = () => {
         playerScore += 1;
-        return gameResult(playerWin(player, computer));
+        return {msg:gameResult(playerWin(player, computer)),
+                playerScore:playerScore,
+                computerScore: computerScore
+        };
     }
-    let loseGame = function(){
+    let loseGame = () => {
         computerScore += 1;
-        return gameResult(playerLose(player, computer));
+        return {msg:gameResult(playerLose(player, computer)),
+                playerScore:playerScore,
+                computerScore: computerScore
+        };
     }
     switch(player){
         case 'rock':
