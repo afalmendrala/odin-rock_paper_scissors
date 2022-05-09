@@ -1,6 +1,3 @@
-const body = document.body;
-const h1 = document.createElement('h1');
-body.appendChild(h1);
 
 function computerPlay(){
     const options = ["rock", "paper", "scissors"];
@@ -25,15 +22,15 @@ function playRound(player, computer){
     
     let tieGame = () => {
         return {msg:tie(player),
-                playerScore:playerScore,
-                computerScore: computerScore
+            playerScore:playerScore,
+            computerScore: computerScore
         };
     }
     let winGame = () => {
         playerScore += 1;
         return {msg:playerWin(player, computer),
-                playerScore:playerScore,
-                computerScore: computerScore
+            playerScore:playerScore,
+            computerScore: computerScore
         };
     }
     let loseGame = () => {
@@ -46,30 +43,36 @@ function playRound(player, computer){
     switch(player){
         case 'rock':
             return (computer == 'rock') ? tieGame()
-                    :(computer == 'paper') ? loseGame()
-                    : winGame();
+            :(computer == 'paper') ? loseGame()
+            : winGame();
             break;
-        case 'paper':
-            return (computer == 'rock') ? winGame()
-                    :(computer == 'paper') ? tieGame()
-                    : loseGame();
-            break;
-        case 'scissors':
-            return (computer == 'rock') ? loseGame()
+            case 'paper':
+                return (computer == 'rock') ? winGame()
+                :(computer == 'paper') ? tieGame()
+                : loseGame();
+                break;
+                case 'scissors':
+                    return (computer == 'rock') ? loseGame()
                     :(computer == 'paper') ? winGame()
                     : tieGame();
             break;    
         }
-}
-
-
-let buttons = document.querySelectorAll('#btn');
-let playerScore = 0;
-let computerScore = 0;
-buttons.forEach(btn => {
+    }
+    
+    const body = document.body;
+    const h1 = document.createElement('h1');
+    body.appendChild(h1);
+    
+    let buttons = document.querySelectorAll('#btn');
+    let playerScore = 0;
+    let computerScore = 0;
+    buttons.forEach(btn => {
     btn.addEventListener('click', () => {
         const computerSelection = computerPlay();
         const playerSelection = btn.className;
-        playRound(playerSelection, computerSelection);
+        const game = playRound(playerSelection, computerSelection);
+        playerScore += game.playerScore;
+        computerScore += game.computerScore;
+        h1.textContent = game.ms;
     })
 })
